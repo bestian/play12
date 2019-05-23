@@ -1,5 +1,8 @@
 {
   "name": "play12",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
   "type": "angular"
 }

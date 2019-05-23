@@ -1,10 +1,14 @@
 ion-col {
 	text-align: center;
-	font-size: 3em;
+	&.big {
+		font-size: 3em;
+	}
 	&.card {
+		font-size: 3em;
 		border: 3px solid black;
 		border-radius: 15px;
 		min-height: 33vh;
+		background-color: #fcc; 
 	}
 	display: flex!important;
 	align-content: center!important;
@@ -12,6 +16,11 @@ ion-col {
 	justify-content: center!important;
 }
 
-a {
+a, .click {
 	cursor: pointer;
+}
+
+.good {
+	background-color: #fcc;
+	padding: .25em;
 }

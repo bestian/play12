@@ -10,12 +10,41 @@
   <ion-grid>
     <ion-row>
       <ion-col col-12>
-        <a (click) = "reset()">再來！</a>
+        先選一個數字開始，再和其他數字組合
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="card" col-4 *ngFor="let item of cards">
-        <a>{{item}}</a>
+      <ion-col col-12 class="big">
+        <a (click) = "makecard()" [ngClass]="{'good' : myNum == 12}">目前數字: {{ myNum }}</a>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="card" col-4 *ngFor="let item of cards; let idx = index">
+        <div [hidden] = "item == 0">
+          <a [hidden] = "myNum != 0" (click) = "myNum = item; use(idx)">{{item}}</a>
+          <ion-list [hidden] = "myNum == 0">       
+            <ion-item class = "click" (click) = "count('+', item, idx)">
+              <ion-label color="primary">+{{item}}</ion-label>
+            </ion-item>
+            <ion-item class = "click" (click) = "count(
+            '-', item, idx)">
+              <ion-label color="secondary">-{{item}}</ion-label>
+            </ion-item>
+            <ion-item class = "click" (click) = "count(
+            '*', item, idx)">
+              <ion-label color="primary">×{{item}}</ion-label>
+            </ion-item>
+            <ion-item class = "click" (click) = "count(
+            '/', item, idx)">
+              <ion-label color="secondary">÷{{item}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 class="big">
+        <a (click) = "reset()">再來！</a>
       </ion-col>
     </ion-row>
   </ion-grid>
