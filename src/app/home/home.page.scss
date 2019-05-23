@@ -1,1 +1,17 @@
+ion-col {
+	text-align: center;
+	font-size: 3em;
+	&.card {
+		border: 3px solid black;
+		border-radius: 15px;
+		min-height: 33vh;
+	}
+	display: flex!important;
+	align-content: center!important;
+	align-items: center!important;
+	justify-content: center!important;
+}
 
+a {
+	cursor: pointer;
+}
