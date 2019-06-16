@@ -10,6 +10,7 @@ export class HomePage {
   wins : number = 0;
   myNum : number = 0;
   title : string = '加減乘除湊12';
+  target: number = 12;
   cards : [number, number, number, number] = [
   	Math.floor(Math.random() * 6) + 1,
   	Math.floor(Math.random() * 6) + 1,
