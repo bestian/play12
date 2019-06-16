@@ -22,23 +22,21 @@ export class HomePage {
   ];
 
   constructor(private storage: Storage) {
+    this.maxWins = 0;
+    this.getValue('maxWins');
   }
 
   // set a key/value
   public setValue(key: string, value: any) {
     this.storage.set(key, value).then((response) => {
       console.log('set' + key + ' ', response);
- 
-      //get Value Saved in key
-      this.getValue(key);
- 
     }).catch((error) => {
       console.log('set error for ' + key + ' ', error);
     });
   }
 
   // get a key/value pair
-  getValue(key: string) {
+   public getValue(key: string) {
     this.storage.get(key).then((val) => {
       console.log('get ' + key + ' ', val);
       this[key] = "";
@@ -50,7 +48,12 @@ export class HomePage {
 
   public iWin () {
     this.win = true;
-    this.wins++
+    this.getValue('maxWins')
+    this.wins++;
+    if (this.wins > this.maxWins) {
+      this.setValue('maxWins', this.wins);
+      this.getValue('maxWins')
+    }
   }
 
   public isWin () {
@@ -72,6 +75,7 @@ export class HomePage {
     }
     this.myNum = 0;
     this.win = false;
+    this.wins = 0;
   }
 
   public makecard () {

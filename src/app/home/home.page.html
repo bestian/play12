@@ -9,11 +9,11 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col col-16 *ngIf="wins == 0">
+      <ion-col col-16 *ngIf="wins == 0 && maxWins == 0">
         先選一個數字開始，再和其他數字組合，四張牌都要用到，最後要湊出{{target}}
       </ion-col>
-      <ion-col col-16 *ngIf="wins > 0">
-        連勝: {{wins}} 連勝!
+      <ion-col col-16 *ngIf="wins > 0 || maxWins > 0">
+        連勝: {{wins}}連勝! 最高記錄: {{maxWins}}連勝
       </ion-col>
     </ion-row>
     <ion-row>
