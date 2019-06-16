@@ -11,6 +11,7 @@ export class HomePage {
 
   win: boolean = false;
   wins : number = 0;
+  maxWins: number = 0;
   myNum : number = 0;
   title : string = '加減乘除湊12';
   target: number = 12;
@@ -22,7 +23,6 @@ export class HomePage {
   ];
 
   constructor(private storage: Storage) {
-    this.maxWins = 0;
     this.getValue('maxWins');
   }
 
