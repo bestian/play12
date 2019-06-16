@@ -7,6 +7,7 @@
 	width: 90vw;
 	border-radius: 15px;
 	height: 10vh;
+	box-shadow: #999 1px 1px 1px 1px;
 }
 
 .card:nth-child(3) {
@@ -41,6 +42,10 @@ a, .click {
 	cursor: pointer;
 }
 
+a, button {
+	min-width: 5em;
+}
+
 .good {
 	background-color: #fcc;
 	padding: .25em;
@@ -52,6 +57,10 @@ a, .click {
 
 .huge {
 	font-size: 3em;	
+}
+
+.blue {
+	color: #00c;
 }
 
 [hidden] {
