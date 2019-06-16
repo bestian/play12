@@ -6,8 +6,23 @@
 	text-align: center;
 	width: 90vw;
 	border-radius: 15px;
-	background-color: #cfc;
 	height: 10vh;
+}
+
+.card:nth-child(3) {
+	background-color: #cfc;
+}
+
+.card:nth-child(4) {
+	background-color: #ccf;
+}
+
+.card:nth-child(5) {
+	background-color: #fcc;
+}
+
+.card:nth-child(6) {
+	background-color: #ff9;
 }
 
 ion-col {

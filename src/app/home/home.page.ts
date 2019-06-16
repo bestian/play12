@@ -74,8 +74,8 @@ export class HomePage {
     	this.cards[i] = Math.floor(Math.random() * 6) + 1
     }
     this.myNum = 0;
+    if (!this.win) { this.wins = 0}
     this.win = false;
-    this.wins = 0;
   }
 
   public makecard () {
