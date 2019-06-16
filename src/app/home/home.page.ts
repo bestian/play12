@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage {
+
   win: boolean = false;
   wins : number = 0;
   myNum : number = 0;
@@ -17,6 +20,33 @@ export class HomePage {
   	Math.floor(Math.random() * 6) + 1,
   	Math.floor(Math.random() * 6) + 1
   ];
+
+  constructor(private storage: Storage) {
+  }
+
+  // set a key/value
+  public setValue(key: string, value: any) {
+    this.storage.set(key, value).then((response) => {
+      console.log('set' + key + ' ', response);
+ 
+      //get Value Saved in key
+      this.getValue(key);
+ 
+    }).catch((error) => {
+      console.log('set error for ' + key + ' ', error);
+    });
+  }
+
+  // get a key/value pair
+  getValue(key: string) {
+    this.storage.get(key).then((val) => {
+      console.log('get ' + key + ' ', val);
+      this[key] = "";
+      this[key] = val;
+    }).catch((error) => {
+      console.log('get error for ' + key + '', error);
+    });
+  }
 
   public iWin () {
     this.win = true;

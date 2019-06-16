@@ -9,42 +9,38 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col col-12 *ngIf="wins == 0">
+      <ion-col col-16 *ngIf="wins == 0">
         先選一個數字開始，再和其他數字組合，四張牌都要用到，最後要湊出{{target}}
       </ion-col>
-      <ion-col col-12 *ngIf="wins > 0">
+      <ion-col col-16 *ngIf="wins > 0">
         連勝: {{wins}} 連勝!
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-12 class="big">
+      <ion-col col-16>
         <ion-button size="large" *ngIf="!isWin()" color="primary" (click) = "makecard()" [ngClass]="{'good' : win}">目前數字: {{ myNum }}</ion-button>
-        <ion-label size="large" color="primary" *ngIf="isWin()">你勝利了!</ion-label>
+        <ion-label class="huge" size="large" color="primary" *ngIf="isWin()">你勝利了!</ion-label>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col class="card" col-4 *ngFor="let item of cards; let idx = index">
-        <div [hidden] = "item == 0">
-          <a [hidden] = "myNum != 0" (click) = "myNum = item; use(idx)">{{item}}</a>
-          <ion-list [hidden] = "myNum == 0">       
-            <ion-item class = "click" (click) = "count('+', item, idx)">
-              <ion-label class="large" color="primary">+{{item}}</ion-label>
-            </ion-item>
-            <ion-item class = "click" (click) = "count(
-            '-', item, idx)">
-              <ion-label class="large" color="secondary">-{{item}}</ion-label>
-            </ion-item>
-            <ion-item class = "click" (click) = "count(
-            '*', item, idx)">
-              <ion-label class="large" color="primary">×{{item}}</ion-label>
-            </ion-item>
-            <ion-item class = "click" (click) = "count(
-            '/', item, idx)">
-              <ion-label class="large" color="secondary">÷{{item}}</ion-label>
-            </ion-item>
-          </ion-list>
-        </div>
-      </ion-col>
+    <ion-row class = "card" *ngFor="let item of cards; let idx = index" [hidden] = "item == 0">
+        <ion-col col-16 [hidden] = "myNum != 0" >
+          <a (click) = "myNum = item; use(idx)">{{item}}</a>
+        </ion-col>       
+          <ion-col col-4 class = "click" (click) = "count('+', item, idx)" [hidden] = "myNum == 0">
+            <ion-label class="large" color="primary">+{{item}}</ion-label>
+          </ion-col>
+          <ion-col col-4 class = "click" (click) = "count(
+          '-', item, idx)" [hidden] = "myNum == 0">
+            <ion-label class="large" color="secondary">-{{item}}</ion-label>
+          </ion-col>
+          <ion-col col-4 class = "click" (click) = "count(
+          '*', item, idx)" [hidden] = "myNum == 0">
+            <ion-label class="large" color="primary">×{{item}}</ion-label>
+          </ion-col>
+          <ion-col col-4 class = "click" (click) = "count(
+          '/', item, idx)" [hidden] = "myNum == 0">
+            <ion-label class="large" color="secondary">÷{{item}}</ion-label>
+          </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12 class="big">

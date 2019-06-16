@@ -1,19 +1,25 @@
-ion-col {
+.big {
+	font-size: 3em;
+}
+.card {
+	font-size: 3em;
 	text-align: center;
-	&.big {
-		font-size: 3em;
-	}
-	&.card {
-		font-size: 3em;
-		border: 3px solid black;
-		border-radius: 15px;
-		min-height: 33vh;
-		background-color: #cfc; 
-	}
+	width: 90vw;
+	border-radius: 15px;
+	background-color: #cfc;
+	height: 10vh;
+}
+
+ion-col {
 	display: flex!important;
 	align-content: center!important;
 	align-items: center!important;
 	justify-content: center!important;
+	min-height: 1em !important;
+}
+
+ion-row {
+	margin: 0.3em 0;
 }
 
 a, .click {
@@ -26,5 +32,13 @@ a, .click {
 }
 
 .large {
-	font-size: 1.5em;
+	font-size: 0.618em;
+}
+
+.huge {
+	font-size: 3em;	
+}
+
+[hidden] {
+	display: none !important;
 }
