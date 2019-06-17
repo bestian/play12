@@ -9,7 +9,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col class = "blue" col-16 *ngIf="wins == 0 && maxWins == 0">
+      <ion-col class = "blue" col-16 *ngIf="wins == 0 && (!maxWins || maxWins== 0)">
         先選一個數字開始，再和其他數字組合，四張牌都要用到，最後要湊出{{target}}
       </ion-col>
       <ion-col class = "blue" col-16 *ngIf="wins > 0 || maxWins > 0">
