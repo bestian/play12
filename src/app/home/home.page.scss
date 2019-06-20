@@ -1,3 +1,16 @@
+#head {
+	text-align: left;
+	background-color: #00CED1;
+	color: white;
+	font-size: 24px;
+	margin: 0;
+	padding: 15px;
+}
+
+ion-grid {
+	padding-left: 15px;
+}
+
 .big {
 	font-size: 3em;
 }
@@ -9,8 +22,13 @@
 	border-radius: 15px;
 	height: 10vh;
 	box-shadow: #999 1px 1px 1px 1px;
+	background-color: #4798B3;
 }
 
+.card a {
+	color: white !important;
+}
+/*
 .card:nth-child(3) {
 	background-color: #cfc;
 }
@@ -26,6 +44,7 @@
 .card:nth-child(6) {
 	background-color: #ff9;
 }
+*/
 
 ion-col {
 	display: flex!important;
@@ -62,6 +81,14 @@ a, button {
 
 .blue {
 	color: #00c;
+}
+
+.black {
+	color: black;
+}
+
+.round {
+	border-radius: 50px;
 }
 
 [hidden] {
