@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 })
 
 export class HomePage {
+  lastWork: string = '';
   slow: boolean = true;
   win: boolean = false;
   wins : number = 0;
@@ -15,6 +16,7 @@ export class HomePage {
   myNum : number = 0;
   title : string = '加減乘除湊12';
   target: number = 12;
+  max: number = 6;
   cards : [number, number, number, number] = [
   	Math.floor(Math.random() * 6) + 1,
   	Math.floor(Math.random() * 6) + 1,
@@ -61,7 +63,7 @@ export class HomePage {
     for (var i = 0; i < this.cards.length; ++i) {
       if (this.cards[i] != 0) { ans = false }
     }
-    if (this.myNum != 12) { ans = false }
+    if (this.myNum != this.target) { ans = false }
     return ans
   }
 
@@ -71,11 +73,24 @@ export class HomePage {
 
   public reset () {
     for (var i = 0; i < 4; ++i) {
-    	this.cards[i] = Math.floor(Math.random() * 6) + 1
+    	this.cards[i] = Math.floor(Math.random() * this.max) + 1
     }
     this.myNum = 0;
     if (!this.win) { this.wins = 0}
     this.win = false;
+    this.lastWork = '';
+  }
+
+  public do24 () {
+    this.target = 24;
+    this.max = 9;
+    this.reset();
+  }
+
+  public do12 () {
+    this.target = 12;
+    this.max = 6;
+    this.reset();
   }
 
   public makecard () {
@@ -92,15 +107,19 @@ export class HomePage {
   	this.use(index)
   	switch (o) {
   		case '+':
+        this.lastWork = this.myNum + '+' + item + '=' + (this.myNum + item);
   			this.myNum += item;
   			break;
   		case '-':
+        this.lastWork = this.myNum + '-' + item + '=' + (this.myNum - item);
   			this.myNum -= item;
   			break;
   		case '*':
+        this.lastWork = this.myNum + '×' + item + '=' + (this.myNum * item);
   			this.myNum *= item;
   			break;
   		case '/':
+        this.lastWork = this.myNum + '÷' + item + '=' + (this.myNum / item);
   			this.myNum /= item;
   			break;
   		default:

@@ -14,14 +14,15 @@
     </ion-row>
     <ion-row>
       <ion-col class = "black" col-16>
-        <ion-checkbox [(ngModel)] = "slow"></ion-checkbox>使用括號
+        <ion-checkbox [(ngModel)] = "slow"></ion-checkbox>使用括號（把兩張數字卡合併成一張）
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-16>
         <ion-button color="light" size="large" *ngIf="!isWin()" (click) = "makecard()" [ngClass]="{'good' : win}">
           <span *ngIf = "myNum != 0">目前數字: {{ myNum }}</span>
-          <span *ngIf = "myNum == 0">請選取一張數字卡</span>
+          <span *ngIf = "myNum == 0 && !lastWork">請選取一張數字卡</span>
+          <span *ngIf = "myNum == 0 && lastWork">{{ lastWork }}<br/></span>
         </ion-button>
         <ion-label class="huge" size="large" color="primary" *ngIf="isWin()">你勝利了!</ion-label>
       </ion-col>
@@ -47,8 +48,12 @@
           </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-12 class="big">
+      <ion-col col-6 class="big">
         <ion-button class = "round" size="large" color="danger" (click) = "reset()">再來！</ion-button>
+      </ion-col>
+      <ion-col col-6 class="big">
+        <ion-button *ngIf="target == 12" class = "round" size="large" color="danger" (click) = "do24()">挑戰湊24</ion-button>
+        <ion-button *ngIf="target == 24" class = "round" size="large" color="danger" (click) = "do12()">回到湊12</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
