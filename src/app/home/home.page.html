@@ -13,6 +13,11 @@
       </ion-col>
     </ion-row>
     <ion-row>
+      <ion-col class = "black" col-16>
+        <ion-checkbox [(ngModel)] = "slow"></ion-checkbox>使用括號
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col col-16>
         <ion-button color="light" size="large" *ngIf="!isWin()" (click) = "makecard()" [ngClass]="{'good' : win}">目前數字: {{ myNum }}</ion-button>
         <ion-label class="huge" size="large" color="primary" *ngIf="isWin()">你勝利了!</ion-label>

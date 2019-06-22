@@ -8,7 +8,7 @@ import { Storage } from '@ionic/storage';
 })
 
 export class HomePage {
-
+  slow: boolean = true;
   win: boolean = false;
   wins : number = 0;
   maxWins: number = 0;
@@ -106,9 +106,12 @@ export class HomePage {
   		default:
   			this.myNum = 0
   	}
-    console.log(this.isWin())
     if (this.isWin()) {
       this.iWin()
+    } else {
+      if (this.slow) {
+        this.makecard()
+      }
     }
   }
 }
