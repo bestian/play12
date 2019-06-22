@@ -19,7 +19,10 @@
     </ion-row>
     <ion-row>
       <ion-col col-16>
-        <ion-button color="light" size="large" *ngIf="!isWin()" (click) = "makecard()" [ngClass]="{'good' : win}">目前數字: {{ myNum }}</ion-button>
+        <ion-button color="light" size="large" *ngIf="!isWin()" (click) = "makecard()" [ngClass]="{'good' : win}">
+          <span *ngIf = "myNum != 0">目前數字: {{ myNum }}</span>
+          <span *ngIf = "myNum == 0">請選取一張數字卡</span>
+        </ion-button>
         <ion-label class="huge" size="large" color="primary" *ngIf="isWin()">你勝利了!</ion-label>
       </ion-col>
     </ion-row>
