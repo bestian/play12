@@ -14,7 +14,6 @@ export class HomePage {
   wins : number = 0;
   maxWins: number = 0;
   myNum : number = 0;
-  title : string = '加減乘除湊12';
   target: number = 12;
   max: number = 6;
   cards : [number, number, number, number] = [
